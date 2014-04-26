@@ -1,12 +1,9 @@
-melonJS boilerplate
+Beneath this cool, calm exterior
 -------------------------------------------------------------------------------
 
-features :
-- video autoscaling
-- mobile optimized HTML/CSS
-- swiping disabled on iOS devices
-- debug Panel (if #debug)
-- distribution build
+My entry for Ludum Dare 29 http://www.ludumdare.com/compo/
+
+Theme: Beneath the Surface
 
 ## To run distribution
 
@@ -25,5 +22,7 @@ To build:
 Note that you may have to edit the file `Gruntfile.js` if you need to better dictate the order your files load in. Note how by default the game.js and resources.js are specified in a specific order.
 
 -------------------------------------------------------------------------------
+Created from the melonJS boilerplate https://github.com/melonjs/boilerplate/
+
 Copyright (C) 2011 - 2013, Olivier Biot, Jason Oster
 melonJS is licensed under the [MIT License](http://www.opensource.org/licenses/mit-license.php)
