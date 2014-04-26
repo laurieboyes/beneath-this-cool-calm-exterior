@@ -12,6 +12,10 @@ game.ManEntity = me.ObjectEntity.extend({
         // set the default horizontal & vertical speed (accel vector)
         this.setVelocity(0.4, 0.4);
         this.setMaxVelocity(3, 3);
+
+        me.event.subscribe("/allEnemiesDead", function () {
+            this.levelComplete();
+        }.bind(this));
     },
 
     update: function () {
@@ -52,7 +56,7 @@ game.ManEntity = me.ObjectEntity.extend({
         var res = me.game.collide(this);
         if (res) {
             if (res.obj.type == me.game.ENEMY_OBJECT) {
-                this.levelFail();
+                this.levelFailed();
             }
         }
 
@@ -98,10 +102,15 @@ game.ManEntity = me.ObjectEntity.extend({
         // any update (e.g. position, animation)
         return false;
     },
-    
-    levelFail : function () {
-        me.event.publish("/levelFailed", []);
+
+    levelFailed : function () {
+        me.event.publish("/levelEnd", []);
         me.levelDirector.loadLevel("face");        
+    },
+
+    levelComplete : function () {
+        me.event.publish("/levelEnd", []);
+        me.levelDirector.loadLevel("face");
     }
     
     

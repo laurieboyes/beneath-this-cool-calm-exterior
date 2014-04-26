@@ -12,9 +12,9 @@ game.MissileEntity = me.ObjectEntity.extend({
         this.direction = direction;
         this.type = "MISSILE";
 
-        me.event.subscribe("/levelFailed", function () {
+        me.event.subscribe("/levelEnd", function () {
             me.game.remove(this);
-        });
+        }.bind(this));
     },
 
     update: function () {

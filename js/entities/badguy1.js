@@ -39,7 +39,20 @@ game.Badguy1Entity = me.ObjectEntity.extend({
         return false;
     },
 
+    //this only happens when it's been shot
     onCollision: function(res, obj) {
+
+        var enemiesRemaining = 0;
+        
+        me.game.world.children.forEach(function(child) {            
+            if(child.type == me.game.ENEMY_OBJECT) {
+                enemiesRemaining++;    
+            }            
+        });
+
+        if(enemiesRemaining <= 1) { //including this one
+            me.event.publish("/allEnemiesDead", []);
+        }
 
         this.collidable = false;
         me.game.remove(this);
