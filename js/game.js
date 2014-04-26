@@ -48,7 +48,7 @@ var game = {
 		me.state.set(me.state.PLAY, new game.PlayScreen());
 
         // enable the keyboard
-        me.input.bindKey(me.input.KEY.SPACE, "shoot");
+        me.input.bindKey(me.input.KEY.SPACE, "start");
         me.input.bindKey(me.input.KEY.A, "left");
         me.input.bindKey(me.input.KEY.D, "right");
         me.input.bindKey(me.input.KEY.W, "up");
@@ -61,6 +61,6 @@ var game = {
         me.sys.gravity = 0;
 
         // Start the game
-		me.state.change(me.state.PLAY);
+		me.state.change(me.state.MENU);
 	}
 };

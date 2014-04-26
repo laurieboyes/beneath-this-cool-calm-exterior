@@ -1,16 +1,29 @@
 game.TitleScreen = me.ScreenObject.extend({
-	/**	
-	 *  action to perform on state change
-	 */
-	onResetEvent: function() {	
-		; // TODO
+
+    init: function() {
+        this.parent(true);
+        this.title = null;
+    },
+
+	onResetEvent: function() {
+        if (this.title == null) {
+            this.title = me.loader.getImage("title-screen");
+        }        
 	},
-	
-	
-	/**	
-	 *  action to perform when leaving this screen (state change)
-	 */
-	onDestroyEvent: function() {
-		; // TODO
+
+    update: function() {
+        if (me.input.isKeyPressed('start')) {
+            me.state.change(me.state.PLAY);
+        }
+        return true;
+    },
+
+    // draw function
+    draw: function(context) {
+        context.drawImage(this.title, 0, 0);
+    },
+
+	onDestroyEvent: function() {      
+        me.input.unbindKey(me.input.KEY.ENTER);
 	}
 });

@@ -15,7 +15,7 @@ game.FaceEntity = me.ObjectEntity.extend({
 
     update : function () {
         
-        if(me.input.isKeyPressed("shoot")){
+        if(me.input.isKeyPressed("start")){
             me.levelDirector.loadLevel("area_temp");  
         }
     }

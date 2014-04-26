@@ -4,6 +4,8 @@ game.resources = [
      * @example
      * {name: "example", type:"image", src: "data/img/example.png"},
      */
+    {name: "title-screen", type: "image", src: "data/img/title.png"},
+    
     {name: "temp-face", type: "image", src: "data/img/temp-face.jpg"},
     {name: "temp-face-inside", type: "image", src: "data/img/temp-face-inside.jpg"},
     {name: "temp-face-inside-shell", type: "image", src: "data/img/temp-face-inside-shell.png"},
