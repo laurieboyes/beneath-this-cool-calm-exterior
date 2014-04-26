@@ -11,6 +11,7 @@ game.resources = [
     {name: "meta", type: "image", src: "data/img/tilesets/meta.png"},
 
     {name: "temp_man", type: "image", src: "data/img/sprites/temp-man.png"},
+    {name: "badguy1", type: "image", src: "data/img/sprites/badguy1.png"},
     
     /* Atlases 
      * @example

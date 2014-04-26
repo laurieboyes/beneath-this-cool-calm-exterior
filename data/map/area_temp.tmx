@@ -35,4 +35,24 @@
    </properties>
   </object>
  </objectgroup>
+ <objectgroup name="badguys" width="30" height="40">
+  <object name="badguy1" x="305" y="301" width="16" height="16">
+   <properties>
+    <property name="image" value="badguy1"/>
+    <property name="spritewidth" value="16"/>
+   </properties>
+  </object>
+  <object name="badguy1" x="171" y="485" width="16" height="16">
+   <properties>
+    <property name="image" value="badguy1"/>
+    <property name="spritewidth" value="16"/>
+   </properties>
+  </object>
+  <object name="badguy1" x="281" y="430" width="16" height="16">
+   <properties>
+    <property name="image" value="badguy1"/>
+    <property name="spritewidth" value="16"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>
