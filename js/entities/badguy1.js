@@ -15,6 +15,11 @@ game.Badguy1Entity = me.ObjectEntity.extend({
 
         // set the default horizontal & vertical speed (accel vector)
         this.setVelocity(3, 3);
+
+        // make it collidable
+        this.collidable = true;
+        // make it a enemy object
+        this.type = me.game.ENEMY_OBJECT;
     },
 
     update: function () {

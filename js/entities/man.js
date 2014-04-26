@@ -29,7 +29,7 @@ game.ManEntity = me.ObjectEntity.extend({
                 return this.vel[axis] -= this.accel[axis] * me.timer.tick;
             }
         }.bind(this);
-        
+
         if (me.input.isKeyPressed('left')) {
             this.vel.x -= this.accel.x * me.timer.tick;
         } else if (me.input.isKeyPressed('right')) {
@@ -48,6 +48,14 @@ game.ManEntity = me.ObjectEntity.extend({
 
         // check & update player movement
         this.updateMovement();
+
+        // check for collision
+        var res = me.game.collide(this);
+        if (res) {
+            if (res.obj.type == me.game.ENEMY_OBJECT) {
+                this.renderable.flicker(45);
+            }
+        }
 
         // update animation if necessary
         if (this.vel.x != 0 || this.vel.y != 0) {
