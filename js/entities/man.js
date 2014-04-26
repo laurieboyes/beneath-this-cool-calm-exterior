@@ -57,6 +57,12 @@ game.ManEntity = me.ObjectEntity.extend({
             }
         }
 
+        //fire a missile if applicable
+        if (me.input.isKeyPressed('shoot')) {
+            me.game.add(new game.MissileEntity(10, 10, {}, 5, 5), this.z);
+            me.game.sort();
+        }
+
         // update animation if necessary
         if (this.vel.x != 0 || this.vel.y != 0) {
             // update object animation
