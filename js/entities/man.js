@@ -3,11 +3,7 @@
  -------------------------------- */
 game.ManEntity = me.ObjectEntity.extend({
 
-    /* -----
-
-     constructor
-
-     ------ */
+    previousMissileTime: me.timer.getTime(),
 
     init: function (x, y, settings) {
         // call the constructor
@@ -19,6 +15,9 @@ game.ManEntity = me.ObjectEntity.extend({
     },
 
     update: function () {
+
+        var shootKeyPressed, missileDirection;
+        var missileSpeed = 10;
 
         var getSlowedVelocity = function (axis) {
             if (Math.abs(this.vel[axis]) < 0.01) {
@@ -58,8 +57,33 @@ game.ManEntity = me.ObjectEntity.extend({
         }
 
         //fire a missile if applicable
-        if (me.input.isKeyPressed('shoot')) {
-            me.game.add(new game.MissileEntity(10, 10, {}, 5, 5), this.z);
+        shootKeyPressed = me.input.isKeyPressed('shootUp')
+            || me.input.isKeyPressed('shootDown')
+            || me.input.isKeyPressed('shootLeft')
+            || me.input.isKeyPressed('shootRight');
+        if (shootKeyPressed && me.timer.getTime() - this.previousMissileTime > 500) {
+
+            this.previousMissileTime = me.timer.getTime();
+
+
+            if (me.input.isKeyPressed('shootUp') && me.input.isKeyPressed('shootLeft')) {
+                missileDirection = 'upLeft';
+            } else if (me.input.isKeyPressed('shootUp') && me.input.isKeyPressed('shootRight')) {
+                missileDirection = 'upRight';
+            } else if (me.input.isKeyPressed('shootDown') && me.input.isKeyPressed('shootLeft')) {
+                missileDirection = 'downLeft';
+            } else if (me.input.isKeyPressed('shootDown') && me.input.isKeyPressed('shootRight')) {
+                missileDirection = 'downRight';
+            } else if (me.input.isKeyPressed('shootUp')) {
+                missileDirection = 'up';
+            } else if (me.input.isKeyPressed('shootDown')) {
+                missileDirection = 'down';
+            } else if (me.input.isKeyPressed('shootLeft')) {
+                missileDirection = 'left';
+            } else if (me.input.isKeyPressed('shootRight')) {
+                missileDirection = 'right';
+            }
+            me.game.add(new game.MissileEntity(this.pos.x + this.width / 2, this.pos.y + this.height / 2, {}, missileDirection), this.z);
             me.game.sort();
         }
 
