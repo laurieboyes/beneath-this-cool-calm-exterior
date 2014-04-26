@@ -8,6 +8,8 @@ game.resources = [
     {name: "temp-face-inside-shell", type: "image", src: "data/img/temp-face-inside-shell.png"},
 
     {name: "tileset1", type: "image", src: "data/img/tilesets/tileset1.png"},
+
+    {name: "temp_man", type: "image", src: "data/img/sprites/temp-man.png"},
     
     /* Atlases 
      * @example

@@ -39,10 +39,15 @@ var game = {
 
 	// Run on game resources loaded.
 	"loaded" : function () {
+
+        me.entityPool.add("theMan", game.ManEntity);
+        
 		me.state.set(me.state.MENU, new game.TitleScreen());
 		me.state.set(me.state.PLAY, new game.PlayScreen());
 
-		// Start the game.
+        me.sys.gravity = 0;
+
+        // Start the game
 		me.state.change(me.state.PLAY);
 	}
 };

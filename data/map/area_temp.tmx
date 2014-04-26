@@ -14,4 +14,12 @@
  <imagelayer name="face-inside-shell" width="30" height="40">
   <image source="../img/temp-face-inside-shell.png"/>
  </imagelayer>
+ <objectgroup name="player" width="30" height="40">
+  <object name="theMan" x="198" y="201" width="16" height="32">
+   <properties>
+    <property name="image" value="temp_man"/>
+    <property name="spritewidth" value="16"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>
