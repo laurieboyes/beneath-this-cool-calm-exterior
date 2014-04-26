@@ -52,7 +52,7 @@ game.ManEntity = me.ObjectEntity.extend({
         var res = me.game.collide(this);
         if (res) {
             if (res.obj.type == me.game.ENEMY_OBJECT) {
-                me.levelDirector.loadLevel("face");
+                this.levelFail();
             }
         }
 
@@ -97,6 +97,13 @@ game.ManEntity = me.ObjectEntity.extend({
         // else inform the engine we did not perform
         // any update (e.g. position, animation)
         return false;
+    },
+    
+    levelFail : function () {
+        me.event.publish("/levelFailed", []);
+        me.levelDirector.loadLevel("face");        
     }
+    
+    
 
 });

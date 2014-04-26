@@ -1,24 +1,27 @@
 game.MissileEntity = me.ObjectEntity.extend({
-    
+
     init: function (x, y, settings, direction) {
         settings.image = "missile";
         this.parent(x, y, settings);
-        
-        if(direction === 'upLeft' || direction === 'upRight' || direction === 'downLeft' || direction === 'downRight') {
+
+        if (direction === 'upLeft' || direction === 'upRight' || direction === 'downLeft' || direction === 'downRight') {
             this.setVelocity(4, 4);
         } else {
             this.setVelocity(8, 8);
         }
         this.direction = direction;
         this.type = "MISSILE";
+
+        me.event.subscribe("/levelFailed", function () {
+            me.game.remove(this);
+        });
     },
 
     update: function () {
 
         var movementRes, collideRes;
 
-        switch(this.direction)
-        {
+        switch (this.direction) {
             case 'left' :
                 this.vel.x -= this.accel.x * me.timer.tick;
                 this.vel.y = 0;
@@ -54,19 +57,19 @@ game.MissileEntity = me.ObjectEntity.extend({
         }
 
         movementRes = this.updateMovement();
-        
-        if(movementRes.x != 0 || movementRes.y != 0) {
+
+        if (movementRes.x != 0 || movementRes.y != 0) {
             this.collidable = false;
             me.game.remove(this);
         }
 
-        //note: apparently this is super slow
+        //note: apparently this is function is super slow
         collideRes = me.game.world.collide(this);
-        if(collideRes && (collideRes.obj.type == me.game.ENEMY_OBJECT)){
+        if (collideRes && (collideRes.obj.type == me.game.ENEMY_OBJECT)) {
             this.collidable = false;
             me.game.remove(this);
         }
-        
+
         return true;
     }
 
