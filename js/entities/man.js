@@ -53,7 +53,7 @@ game.ManEntity = me.ObjectEntity.extend({
         var res = me.game.collide(this);
         if (res) {
             if (res.obj.type == me.game.ENEMY_OBJECT) {
-                this.renderable.flicker(45);
+                me.levelDirector.loadLevel("face");
             }
         }
 

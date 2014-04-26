@@ -4,6 +4,7 @@ game.resources = [
      * @example
      * {name: "example", type:"image", src: "data/img/example.png"},
      */
+    {name: "temp-face", type: "image", src: "data/img/temp-face.jpg"},
     {name: "temp-face-inside", type: "image", src: "data/img/temp-face-inside.jpg"},
     {name: "temp-face-inside-shell", type: "image", src: "data/img/temp-face-inside-shell.png"},
 
@@ -24,6 +25,7 @@ game.resources = [
      * {name: "example01", type: "tmx", src: "data/map/example01.json"},
      */
 
+    {name: "face", type: "tmx", src: "data/map/face.tmx"},
     {name: "area_temp", type: "tmx", src: "data/map/area_temp.tmx"}
 
     /* Background music. 

@@ -42,11 +42,13 @@ var game = {
 
         me.entityPool.add("theMan", game.ManEntity);
         me.entityPool.add("badguy1", game.Badguy1Entity);
+        me.entityPool.add("face", game.FaceEntity);
         
 		me.state.set(me.state.MENU, new game.TitleScreen());
 		me.state.set(me.state.PLAY, new game.PlayScreen());
 
         // enable the keyboard
+        me.input.bindKey(me.input.KEY.SPACE, "shoot");
         me.input.bindKey(me.input.KEY.LEFT, "left");
         me.input.bindKey(me.input.KEY.RIGHT, "right");
         me.input.bindKey(me.input.KEY.UP, "up");
