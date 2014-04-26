@@ -10,11 +10,12 @@ game.MissileEntity = me.ObjectEntity.extend({
             this.setVelocity(8, 8);
         }
         this.direction = direction;
+        this.type = "MISSILE";
     },
 
     update: function () {
 
-        var movementRes;
+        var movementRes, collideRes;
 
         switch(this.direction)
         {
@@ -58,6 +59,14 @@ game.MissileEntity = me.ObjectEntity.extend({
             this.collidable = false;
             me.game.remove(this);
         }
+
+        //note: apparently this is super slow
+        collideRes = me.game.world.collide(this);
+        if(collideRes && (collideRes.obj.type == me.game.ENEMY_OBJECT)){
+            this.collidable = false;
+            me.game.remove(this);
+        }
+        
         return true;
     }
 

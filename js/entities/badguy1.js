@@ -37,6 +37,13 @@ game.Badguy1Entity = me.ObjectEntity.extend({
         // else inform the engine we did not perform
         // any update (e.g. position, animation)
         return false;
+    },
+
+    onCollision: function(res, obj) {
+
+        this.collidable = false;
+        me.game.remove(this);
+        
     }
 
 });
