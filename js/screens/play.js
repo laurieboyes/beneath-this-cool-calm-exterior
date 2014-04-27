@@ -9,7 +9,7 @@ game.PlayScreen = me.ScreenObject.extend({
         game.data.waveNumber = 1;
 
         // load a level
-        me.levelDirector.loadLevel("area_temp");
+        me.levelDirector.loadLevel("area1");
         
 		// add our HUD to the game world
 		this.HUD = new game.HUD.Container();

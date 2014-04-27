@@ -44,7 +44,15 @@ game.resources = [
      */
 
     {name: "face", type: "tmx", src: "data/map/face.tmx"},
-    {name: "area_temp", type: "tmx", src: "data/map/area_temp.tmx"}
+    {name: "area_temp", type: "tmx", src: "data/map/area_temp.tmx"},
+    {name: "area1", type: "tmx", src: "data/map/area01.tmx"},
+    {name: "area2", type: "tmx", src: "data/map/area02.tmx"},
+    {name: "area3", type: "tmx", src: "data/map/area03.tmx"},
+    {name: "area4", type: "tmx", src: "data/map/area04.tmx"},
+    {name: "area5", type: "tmx", src: "data/map/area05.tmx"},
+    {name: "area6", type: "tmx", src: "data/map/area06.tmx"},
+    {name: "area7", type: "tmx", src: "data/map/area07.tmx"},
+    {name: "area8", type: "tmx", src: "data/map/area08.tmx"}
 
     /* Background music. 
      * @example

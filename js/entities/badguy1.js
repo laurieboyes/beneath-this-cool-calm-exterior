@@ -25,14 +25,14 @@ game.Badguy1Entity = me.ObjectEntity.extend({
 
         if (me.timer.getTime() > this.currentVelSetTime + this.currentVelDuration) {
 
-            this.currentVel = new me.Vector2d((Math.random() * 6) - 3,(Math.random() * 6) - 3);
+            this.currentVel = new me.Vector2d((Math.random() * 6) - 3, (Math.random() * 6) - 3);
             this.currentVelSetTime = me.timer.getTime();
             this.currentVelDuration = Math.random() * 1000;
         }
-        
+
         this.vel = this.currentVel;
         this.updateMovement();
-       
+
         // update animation if necessary
         if (this.vel.x != 0 || this.vel.y != 0) {
             // update object animation
@@ -48,21 +48,23 @@ game.Badguy1Entity = me.ObjectEntity.extend({
     //this only happens when it's been shot
     onCollision: function (res, obj) {
 
-        var enemiesRemaining = 0;
+        if (obj.type === 'MISSILE') {
+            
+            var enemiesRemaining = 0;
 
-        me.game.world.children.forEach(function (child) {
-            if (child.type == me.game.ENEMY_OBJECT) {
-                enemiesRemaining++;
+            me.game.world.children.forEach(function (child) {
+                if (child.type == me.game.ENEMY_OBJECT) {
+                    enemiesRemaining++;
+                }
+            });
+
+            if (enemiesRemaining <= 1) { //including this one
+                me.event.publish("/allEnemiesDead", []);
             }
-        });
 
-        if (enemiesRemaining <= 1) { //including this one
-            me.event.publish("/allEnemiesDead", []);
+            this.collidable = false;
+            me.game.remove(this);
         }
-
-        this.collidable = false;
-        me.game.remove(this);
-
     }
 
 });
