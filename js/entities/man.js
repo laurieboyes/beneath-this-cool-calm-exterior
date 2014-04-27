@@ -59,7 +59,6 @@ game.ManEntity = me.ObjectEntity.extend({
         var res = me.game.collide(this);
         if (res) {
             if (res.obj.type == me.game.ENEMY_OBJECT) {
-                console.log('derp');
                 this.levelFailed();
             }
         }
