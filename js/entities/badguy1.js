@@ -9,9 +9,11 @@ game.Badguy1Entity = me.ObjectEntity.extend({
     currentVelDuration: 0,
     worry: '',
 
+    health: 2,
+
     init: function (x, y, settings) {
         var worryNumber;
-        
+
         // call the constructor
         this.parent(x, y, settings);
 
@@ -22,11 +24,11 @@ game.Badguy1Entity = me.ObjectEntity.extend({
         this.collidable = true;
         // make it a enemy object
         this.type = me.game.ENEMY_OBJECT;
-        
-        if(game.worries.length && Math.random() < 0.30) {
+
+        if (game.worries.length && Math.random() < 0.30) {
             worryNumber = Math.floor(Math.random() * game.worries.length);
             this.worry = game.worries[worryNumber];
-            game.worries.splice(worryNumber,1);
+            game.worries.splice(worryNumber, 1);
         }
     },
 
@@ -58,27 +60,29 @@ game.Badguy1Entity = me.ObjectEntity.extend({
     onCollision: function (res, obj) {
 
         if (obj.type === 'MISSILE') {
-            
-            var enemiesRemaining = 0;
 
-            me.game.world.children.forEach(function (child) {
-                if (child.type == me.game.ENEMY_OBJECT) {
-                    enemiesRemaining++;
+            if (this.health-- <= 1) {
+                var enemiesRemaining = 0;
+
+                me.game.world.children.forEach(function (child) {
+                    if (child.type == me.game.ENEMY_OBJECT) {
+                        enemiesRemaining++;
+                    }
+                });
+
+                if (enemiesRemaining <= 1) { //including this one
+                    me.event.publish("/allEnemiesDead", []);
                 }
-            });
 
-            if (enemiesRemaining <= 1) { //including this one
-                me.event.publish("/allEnemiesDead", []);
+                this.collidable = false;
+                me.game.remove(this);
             }
-
-            this.collidable = false;
-            me.game.remove(this);
         }
     },
-    
-    draw : function(context) {
+
+    draw: function (context) {
         this.parent(context);
-        new me.Font("Verdana", 14, "white").draw(context, this.worry ,this.pos.x - 20, this.pos.y - 20);
+        new me.Font("Verdana", 14, "white").draw(context, this.worry, this.pos.x - 20, this.pos.y - 20);
     }
 
 });
