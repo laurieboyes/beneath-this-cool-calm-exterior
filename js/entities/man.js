@@ -95,6 +95,10 @@ game.ManEntity = me.ObjectEntity.extend({
         if (this.vel.x != 0 || this.vel.y != 0) {
             // update object animation
             this.parent();
+            
+//            store the player position so other entities know
+            game.data.playerPos = this.pos;            
+            
             return true;
         }
 
