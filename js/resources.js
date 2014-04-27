@@ -59,10 +59,14 @@ game.resources = [
      * @example
      * {name: "example_bgm", type: "audio", src: "data/bgm/", channel : 1},
      */
-    {name: "music-loop", type: "audio", src: "data/bgm/", channel : 1}
+    {name: "music-loop", type: "audio", src: "data/bgm/", channel : 1},
 
     /* Sound effects. 
      * @example
      * {name: "example_sfx", type: "audio", src: "data/sfx/", channel : 2}
      */
+    {name: "shoot", type: "audio", src: "data/sfx/", channel : 2},
+    {name: "hitenemy", type: "audio", src: "data/sfx/", channel : 2},
+    {name: "gasp", type: "audio", src: "data/sfx/", channel : 2}
+    
 ];

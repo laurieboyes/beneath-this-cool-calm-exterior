@@ -9,6 +9,8 @@ game.GameOverScreen = me.ScreenObject.extend({
         if (this.title == null) {
             this.title = me.loader.getImage("gameover-face");
         }        
+        
+        me.audio.stopTrack();
 	},
 
     update: function() {

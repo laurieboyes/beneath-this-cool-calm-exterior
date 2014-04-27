@@ -66,6 +66,7 @@ game.MissileEntity = me.ObjectEntity.extend({
         //note: apparently this is function is super slow
         collideRes = me.game.world.collide(this);
         if (collideRes && (collideRes.obj.type == me.game.ENEMY_OBJECT)) {
+            me.audio.play('hitenemy');
             this.collidable = false;
             me.game.remove(this);
         }

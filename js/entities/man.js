@@ -90,6 +90,7 @@ game.ManEntity = me.ObjectEntity.extend({
                 missileDirection = 'right';
             }
             me.game.add(new game.MissileEntity(this.pos.x + this.width / 2, this.pos.y + this.height / 2, {}, missileDirection), this.z);
+            me.audio.play("shoot");
             me.game.sort();
         }
 
@@ -106,7 +107,8 @@ game.ManEntity = me.ObjectEntity.extend({
     },
 
     levelFailed : function () {
-        me.event.publish("/levelEnd", []);        
+        me.event.publish("/levelEnd", []);
+        me.audio.play("gasp");
         if(--game.data.health === 0) {
             me.state.change(me.state.GAMEOVER);
         } else {
