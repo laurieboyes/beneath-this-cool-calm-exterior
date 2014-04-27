@@ -5,9 +5,9 @@ game.MissileEntity = me.ObjectEntity.extend({
         this.parent(x, y, settings);
 
         if (direction === 'upLeft' || direction === 'upRight' || direction === 'downLeft' || direction === 'downRight') {
-            this.setVelocity(8, 8);
+            this.setVelocity(4, 4);
         } else {
-            this.setVelocity(16, 16);
+            this.setVelocity(8, 8);
         }
         this.direction = direction;
         this.type = "MISSILE";

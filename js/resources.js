@@ -53,12 +53,13 @@ game.resources = [
     {name: "area5", type: "tmx", src: "data/map/area05.tmx"},
     {name: "area6", type: "tmx", src: "data/map/area06.tmx"},
     {name: "area7", type: "tmx", src: "data/map/area07.tmx"},
-    {name: "area8", type: "tmx", src: "data/map/area08.tmx"}
+    {name: "area8", type: "tmx", src: "data/map/area08.tmx"},
 
     /* Background music. 
      * @example
      * {name: "example_bgm", type: "audio", src: "data/bgm/", channel : 1},
      */
+    {name: "music-loop", type: "audio", src: "data/bgm/", channel : 1}
 
     /* Sound effects. 
      * @example

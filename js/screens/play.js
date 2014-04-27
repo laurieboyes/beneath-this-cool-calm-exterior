@@ -8,6 +8,8 @@ game.PlayScreen = me.ScreenObject.extend({
 		game.data.health = 5;
         game.data.waveNumber = 1;
 
+        me.audio.playTrack("music-loop", true);        
+        
         // load a level
         me.levelDirector.loadLevel("area1");
         

@@ -21,7 +21,6 @@ game.ManEntity = me.ObjectEntity.extend({
     update: function () {
 
         var shootKeyPressed, missileDirection;
-        var missileSpeed = 10;
 
         var getSlowedVelocity = function (axis) {
             if (Math.abs(this.vel[axis]) < 0.01) {
@@ -68,7 +67,7 @@ game.ManEntity = me.ObjectEntity.extend({
             || me.input.isKeyPressed('shootDown')
             || me.input.isKeyPressed('shootLeft')
             || me.input.isKeyPressed('shootRight');
-        if (shootKeyPressed && me.timer.getTime() - this.previousMissileTime > 500) {
+        if (shootKeyPressed && me.timer.getTime() - this.previousMissileTime > 250) {
 
             this.previousMissileTime = me.timer.getTime();
 
