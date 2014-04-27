@@ -7,8 +7,11 @@ game.Badguy1Entity = me.ObjectEntity.extend({
     currentVel: new me.Vector2d(0, 0),
     currentVelSetTime: me.timer.getTime(),
     currentVelDuration: 0,
+    worry: '',
 
     init: function (x, y, settings) {
+        var worryNumber;
+        
         // call the constructor
         this.parent(x, y, settings);
 
@@ -19,6 +22,12 @@ game.Badguy1Entity = me.ObjectEntity.extend({
         this.collidable = true;
         // make it a enemy object
         this.type = me.game.ENEMY_OBJECT;
+        
+        if(game.worries.length && Math.random() < 0.30) {
+            worryNumber = Math.floor(Math.random() * game.worries.length);
+            this.worry = game.worries[worryNumber];
+            game.worries.splice(worryNumber,1);
+        }
     },
 
     update: function () {
@@ -69,7 +78,7 @@ game.Badguy1Entity = me.ObjectEntity.extend({
     
     draw : function(context) {
         this.parent(context);
-//        new me.Font("Verdana", 14, "white").draw(context, "Player #" ,this.pos.x - 20, this.pos.y - 20);
+        new me.Font("Verdana", 14, "white").draw(context, this.worry ,this.pos.x - 20, this.pos.y - 20);
     }
 
 });

@@ -64,5 +64,17 @@ var game = {
 
         // Start the game
 		me.state.change(me.state.MENU);
-	}
+	},
+    
+    worries : [
+        "You don't really understand this stuff",
+        "No one likes you",
+        "Your fly might be open",
+        "That man is staring at you",
+        "You might have a bogey",
+        "Don't look bored",
+        "Should have pulled a sickie"
+        
+    ]
+    
 };
