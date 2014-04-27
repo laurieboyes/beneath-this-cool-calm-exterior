@@ -1,7 +1,7 @@
 game.PlayScreen = me.ScreenObject.extend({
-	/**
-	 *  action to perform on state change
-	 */
+	
+    name: 'play',
+    
 	onResetEvent: function() {
 		// reset the score
 		game.data.maxHealth = 5;

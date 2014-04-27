@@ -65,6 +65,11 @@ game.Badguy1Entity = me.ObjectEntity.extend({
             this.collidable = false;
             me.game.remove(this);
         }
+    },
+    
+    draw : function(context) {
+        this.parent(context);
+//        new me.Font("Verdana", 14, "white").draw(context, "Player #" ,this.pos.x - 20, this.pos.y - 20);
     }
 
 });
