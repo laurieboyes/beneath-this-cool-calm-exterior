@@ -67,6 +67,8 @@ game.resources = [
      */
     {name: "shoot", type: "audio", src: "data/sfx/", channel : 2},
     {name: "hitenemy", type: "audio", src: "data/sfx/", channel : 2},
+    {name: "hitplayer", type: "audio", src: "data/sfx/", channel : 2},
+    {name: "killplayer", type: "audio", src: "data/sfx/", channel : 2},
     {name: "gasp", type: "audio", src: "data/sfx/", channel : 2}
     
 ];
