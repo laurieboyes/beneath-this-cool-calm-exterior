@@ -4,8 +4,8 @@ game.PlayScreen = me.ScreenObject.extend({
 	 */
 	onResetEvent: function() {
 		// reset the score
-		game.data.maxHealth = 3;
-		game.data.health = 3;
+		game.data.maxHealth = 5;
+		game.data.health = 5;
         game.data.waveNumber = 1;
 
         // load a level
@@ -14,6 +14,9 @@ game.PlayScreen = me.ScreenObject.extend({
 		// add our HUD to the game world
 		this.HUD = new game.HUD.Container();
 		me.game.world.addChild(this.HUD);
+        
+        this.FaceLayer = new game.FaceLayer.Container();
+		me.game.world.addChild(this.FaceLayer);
 	},
 
 

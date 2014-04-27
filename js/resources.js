@@ -5,6 +5,13 @@ game.resources = [
      * {name: "example", type:"image", src: "data/img/example.png"},
      */
     {name: "title-screen", type: "image", src: "data/img/title.png"},
+
+    //pain faces
+    {name: "pain-face1", type: "image", src: "data/img/face1.jpg"},
+    {name: "pain-face2", type: "image", src: "data/img/face2.jpg"},
+    {name: "pain-face3", type: "image", src: "data/img/face3.jpg"},
+    {name: "pain-face4", type: "image", src: "data/img/face4.jpg"},
+    {name: "pain-face5", type: "image", src: "data/img/face5.jpg"},
     
     {name: "gameover-face", type: "image", src: "data/img/gameover-face.jpg"},
     {name: "temp-face", type: "image", src: "data/img/temp-face.jpg"},
