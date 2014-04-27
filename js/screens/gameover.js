@@ -1,5 +1,7 @@
 game.GameOverScreen = me.ScreenObject.extend({
 
+    
+    
     init: function() {
         this.parent(true);
         this.title = null;
@@ -10,11 +12,14 @@ game.GameOverScreen = me.ScreenObject.extend({
             this.title = me.loader.getImage("gameover-face");
         }        
         
+        this.timeDied = me.timer.getTime();
+        
         me.audio.stopTrack();
 	},
 
     update: function() {
         if (me.input.isKeyPressed('start')) {
+            if(me.timer.getTime() > this.timeDied + 2000)
             me.state.change(me.state.PLAY);
         }
         return true;
