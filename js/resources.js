@@ -6,6 +6,7 @@ game.resources = [
      */
     {name: "title-screen", type: "image", src: "data/img/title.png"},
     
+    {name: "gameover-face", type: "image", src: "data/img/gameover-face.jpg"},
     {name: "temp-face", type: "image", src: "data/img/temp-face.jpg"},
     {name: "temp-face-inside", type: "image", src: "data/img/temp-face-inside.jpg"},
     {name: "temp-face-inside-shell", type: "image", src: "data/img/temp-face-inside-shell.png"},

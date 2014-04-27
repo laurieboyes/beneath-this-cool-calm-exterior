@@ -108,12 +108,17 @@ game.ManEntity = me.ObjectEntity.extend({
 
     levelFailed : function () {
         me.event.publish("/levelEnd", []);
-        me.levelDirector.loadLevel("face");        
+        me.levelDirector.loadLevel("face");
+        game.data.waveNumber++;
+        if(--game.data.health === 0) {
+            me.state.change(me.state.GAMEOVER);
+        }
     },
 
     levelComplete : function () {
         me.event.publish("/levelEnd", []);
         me.levelDirector.loadLevel("face");
+        game.data.waveNumber++
     }
     
     

@@ -4,7 +4,9 @@ game.PlayScreen = me.ScreenObject.extend({
 	 */
 	onResetEvent: function() {
 		// reset the score
-		game.data.score = 0;
+		game.data.maxHealth = 3;
+		game.data.health = 3;
+        game.data.waveNumber = 1;
 
         // load a level
         me.levelDirector.loadLevel("area_temp");
