@@ -1,11 +1,4 @@
-
-
-/**
- * a HUD container and child items
- */
-
 game.HUD = game.HUD || {};
-
 
 game.HUD.Container = me.ObjectContainer.extend({
 
@@ -26,49 +19,34 @@ game.HUD.Container = me.ObjectContainer.extend({
 		this.name = "HUD";
 		
 		// add our child score object at the top left corner
-		this.addChild(new game.HUD.ScoreItem(5, 5));
+		this.addChild(new game.HealthBar());
 	}
 });
 
 
-/** 
- * a basic HUD item to display score
- */
-game.HUD.ScoreItem = me.Renderable.extend({	
-	/** 
-	 * constructor
-	 */
-	init: function(x, y) {
-		
-		// call the parent constructor 
-		// (size does not matter here)
-		this.parent(new me.Vector2d(x, y), 10, 10); 
-		
-		// local copy of the global score
-		this.score = -1;
+game.HealthBar = me.Renderable.extend({
+    init: function () {
+        this.parent(new me.Vector2d(140, 590), 200, 20);
+    },
 
-		// make sure we use screen coordinates
-		this.floating = true;
-	},
+    draw: function (context) {
+        
+        
+        //health
+        if(me.levelDirector.getCurrentLevelId() === "face"){
+            var margin = 2;
+            
+            context.fillStyle = 'red';
+            context.fillRect(this.pos.x, this.pos.y, this.width, this.height);
 
-	/**
-	 * update function
-	 */
-	update : function () {
-		// we don't do anything fancy here, so just
-		// return true if the score has been updated
-		if (this.score !== game.data.score) {	
-			this.score = game.data.score;
-			return true;
-		}
-		return false;
-	},
-
-	/**
-	 * draw the score
-	 */
-	draw : function (context) {
-		// draw it baby !
-	}
+            context.fillStyle = 'green';
+            context.fillRect(this.pos.x + margin, this.pos.y + margin, (this.width * (game.data.health / game.data.maxHealth)) - (margin * 2), this.height - (margin * 2));
+        }       
+        
+        
+        //waves
+        new me.Font("Verdana", 30, "red").draw(context, "Wave " + game.data.waveNumber, 100, 50);
+        
+    }
 
 });

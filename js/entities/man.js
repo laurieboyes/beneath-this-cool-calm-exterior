@@ -59,6 +59,7 @@ game.ManEntity = me.ObjectEntity.extend({
         var res = me.game.collide(this);
         if (res) {
             if (res.obj.type == me.game.ENEMY_OBJECT) {
+                console.log('derp');
                 this.levelFailed();
             }
         }
@@ -107,18 +108,22 @@ game.ManEntity = me.ObjectEntity.extend({
     },
 
     levelFailed : function () {
-        me.event.publish("/levelEnd", []);
-        me.levelDirector.loadLevel("face");
+        me.event.publish("/levelEnd", []);        
         game.data.waveNumber++;
         if(--game.data.health === 0) {
             me.state.change(me.state.GAMEOVER);
+        } else {
+            me.levelDirector.loadLevel("face");
         }
     },
 
     levelComplete : function () {
-        me.event.publish("/levelEnd", []);
-        me.levelDirector.loadLevel("face");
-        game.data.waveNumber++
+        //event may be send a couple of times before this happens. We only want it to register once
+        if(me.levelDirector.getCurrentLevelId() !== "face"){
+            me.event.publish("/levelEnd", []);
+            me.levelDirector.loadLevel("face");
+            game.data.waveNumber++
+        }        
     }
     
     
