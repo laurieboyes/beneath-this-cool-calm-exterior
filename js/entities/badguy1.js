@@ -82,7 +82,7 @@ game.Badguy1Entity = me.ObjectEntity.extend({
 
     draw: function (context) {
         this.parent(context);
-        new me.Font("Verdana", 14, "white").draw(context, this.worry, this.pos.x - 20, this.pos.y - 20);
+        new me.Font("Verdana", 14, "white").draw(context, this.worry, this.pos.x - 70, this.pos.y - 20);
     }
 
 });

@@ -73,6 +73,20 @@ var game = {
         "That man is staring at you",
         "You might have a bogey",
         "Don't look bored",
+        "I'm really tired",
+        "You need exercise",
+        "Don't fail",
+        "You need to succeed",
+        "Don't be like you are",
+        "You're doing it wrong",
+        "You're sweating",
+        "Everyone can smell your feet",
+        "You're not listening!",
+        "Eat your five a day",
+        "RSI will ruin your life",
+        "Did I lock the front door?",
+        "Forgot that person's name",
+        "I'll never be a rapper",
         "Should have pulled a sickie"
         
     ]
