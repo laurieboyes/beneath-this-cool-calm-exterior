@@ -23,94 +23,16 @@ game.Badguy1Entity = me.ObjectEntity.extend({
 
     update: function () {
 
-        var movementRes;
+        if (me.timer.getTime() > this.currentVelSetTime + this.currentVelDuration) {
 
-        //move for a random distance in the closest of 4 directions towards the player
-        var velDirectTowardsPlayer = function () {
-            var result = this.currentVel;
-            var playerAngle;
-
-            if (game.data.playerPos == undefined) {
-                return result;
-            }
-
-            if (me.timer.getTime() > this.currentVelSetTime + this.currentVelDuration) {
-                console.log('moving towards player');
-
-                playerAngle = this.pos.angle(game.data.playerPos) * (180 / Math.PI);
-
-                if (playerAngle >= -135 && playerAngle < -45) {
-                    result = new me.Vector2d(0, -3); //up
-                } else if (playerAngle >= 45 && playerAngle < 135) {
-                    result = new me.Vector2d(0, 3); //down
-                } else if (playerAngle >= -45 && playerAngle < 45) {
-                    result = new me.Vector2d(3, 0); //right
-                } else if ((playerAngle >= -135 && playerAngle < -180) || (playerAngle >= 135 && playerAngle < 180)) {
-                    result = new me.Vector2d(-3, 0); //left
-                }
-
-
-                this.currentVel = result;
-                this.currentVelSetTime = me.timer.getTime();
-                this.currentVelDuration = Math.random() * 1000;
-
-            }
-
-            return result;
-
-        }.bind(this);
-
-        var velRandomDirection = function () {
-            var result = this.currentVel;
-
-            var random = Math.random();
-
-            if (random >= 0 && random < 0.25) {
-                result = new me.Vector2d(0, -3); //up
-            } else if (random >= 0.25 && random < 0.5) {
-                result = new me.Vector2d(0, 3); //down
-            } else if (random >= 0.5 && random < 0.75) {
-                result = new me.Vector2d(3, 0); //right
-            } else if (random >= 0.75 && random < 1) {
-                result = new me.Vector2d(-3, 0); //left
-            }
-
-            this.currentVel = result;
+            this.currentVel = new me.Vector2d((Math.random() * 6) - 3,(Math.random() * 6) - 3);
             this.currentVelSetTime = me.timer.getTime();
-            this.currentVelDuration = Math.random() * 3000;
-
-            return result;
-
-        }.bind(this);
-
-
-        this.vel = velDirectTowardsPlayer();
-
-        // check & update player movement
-        movementRes = this.updateMovement();
-
-        // if we hit a wall, try going in a random direction
-        if (movementRes.x != 0) {
-            console.log('reversing x');
-            this.currentVel.x = -this.currentVel.x;
-            this.currentVelSetTime = me.timer.getTime();
-            this.currentVelDuration = Math.random() * 500;
+            this.currentVelDuration = Math.random() * 1000;
         }
-        if (movementRes.y != 0) {
-            console.log('reversing y');
-            this.currentVel.y = -this.currentVel.y;
-            this.currentVelSetTime = me.timer.getTime();
-            this.currentVelDuration = Math.random() * 500;
-        }
-
-        if (movementRes.y != 0 && movementRes.x != 0) {
-            console.log('reversing x and y');
-            this.currentVel.y = -this.currentVel.y;
-            this.currentVel.x = -this.currentVel.x;
-            this.currentVelSetTime = me.timer.getTime();
-            this.currentVelDuration = Math.random() * 500;
-        }
-
+        
+        this.vel = this.currentVel;
+        this.updateMovement();
+       
         // update animation if necessary
         if (this.vel.x != 0 || this.vel.y != 0) {
             // update object animation

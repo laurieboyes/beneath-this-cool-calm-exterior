@@ -52,6 +52,9 @@ game.ManEntity = me.ObjectEntity.extend({
         // check & update player movement
         this.updateMovement();
 
+        // store the player position so other entities know
+        game.data.playerPos = this.pos;
+
         // check for collision
         var res = me.game.collide(this);
         if (res) {
@@ -94,11 +97,7 @@ game.ManEntity = me.ObjectEntity.extend({
         // update animation if necessary
         if (this.vel.x != 0 || this.vel.y != 0) {
             // update object animation
-            this.parent();
-            
-//            store the player position so other entities know
-            game.data.playerPos = this.pos;            
-            
+            this.parent();    
             return true;
         }
 
