@@ -36,13 +36,15 @@ game.FaceLayer.Container = me.ObjectContainer.extend({
     
     
     draw: function(context) {
-        if(game.data.health > 0){
-            if(me.levelDirector.getCurrentLevelId() === "face"){
-                context.drawImage(this.faceImages[game.data.health], 0, 0);
-            } else {
-                context.drawImage(this.faceImageShells[game.data.health], 0, 0);
-            }   
-        }        
+        if(game.state === me.state.PLAY){
+            if(game.data.health > 0){
+                if(me.levelDirector.getCurrentLevelId() === "face"){
+                    context.drawImage(this.faceImages[game.data.health], 0, 0);
+                } else {
+                    context.drawImage(this.faceImageShells[game.data.health], 0, 0);
+                }
+            }    
+        }                
     }
     
 });

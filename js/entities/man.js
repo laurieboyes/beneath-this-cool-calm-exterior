@@ -119,8 +119,11 @@ game.ManEntity = me.ObjectEntity.extend({
         //event may be send a couple of times before this happens. We only want it to register once
         if(me.levelDirector.getCurrentLevelId() !== "face"){
             me.event.publish("/levelEnd", []);
-            me.levelDirector.loadLevel("face");
-            game.data.waveNumber++
+            if(++game.data.waveNumber > 8) {
+                me.state.change(me.state.GAME_END);
+            } else { 
+                me.levelDirector.loadLevel("face");    
+            }            
         }        
     }
     

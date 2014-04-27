@@ -21,6 +21,7 @@ game.resources = [
     {name: "pain-face5-shell", type: "image", src: "data/img/face5-shell.png"},
     
     {name: "gameover-face", type: "image", src: "data/img/gameover-face.jpg"},
+    {name: "gameend-face", type: "image", src: "data/img/gameend-face.jpg"},
     {name: "temp-face", type: "image", src: "data/img/temp-face.jpg"},
     {name: "temp-face-inside", type: "image", src: "data/img/temp-face-inside.jpg"},
     {name: "temp-face-inside-shell", type: "image", src: "data/img/temp-face-inside-shell.png"},
