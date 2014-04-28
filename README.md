@@ -5,7 +5,7 @@ My entry for 48-hour game jam Ludum Dare 29 http://www.ludumdare.com/compo/
 
 Theme: Beneath the Surface
 
-[Play the game](http://lrnk.co.uk/ludumdare29/index.html)
+[Play the game](http://lrnk.co.uk/ludumdare29/index.html) (Note: works best in Firefox)
 
 ## To run distribution
 
