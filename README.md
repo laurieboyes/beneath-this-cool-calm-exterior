@@ -1,7 +1,7 @@
 Beneath this cool, calm exterior
 -------------------------------------------------------------------------------
 
-My entry for Ludum Dare 29 http://www.ludumdare.com/compo/
+My entry for 48-hour game jam Ludum Dare 29 http://www.ludumdare.com/compo/
 
 Theme: Beneath the Surface
 
