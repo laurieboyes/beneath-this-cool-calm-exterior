@@ -108,11 +108,12 @@ game.ManEntity = me.ObjectEntity.extend({
 
     levelFailed : function () {
         me.event.publish("/levelEnd", []);
-        me.audio.play("hitplayer");
         if(--game.data.health === 0) {
-            me.audio.play("killplayer");
+            me.audio.play("killplayer");            
             me.state.change(me.state.GAMEOVER);
         } else {
+            me.audio.play("hitplayer");
+            me.game.viewport.shake(8, 500, me.game.viewport.AXIS.BOTH);
             me.levelDirector.loadLevel("face");
         }
     },
