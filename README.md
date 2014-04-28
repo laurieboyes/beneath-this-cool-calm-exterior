@@ -5,6 +5,8 @@ My entry for Ludum Dare 29 http://www.ludumdare.com/compo/
 
 Theme: Beneath the Surface
 
+[Play the game](http://lrnk.co.uk/ludumdare29/index.html)
+
 ## To run distribution
 
 To build, be sure you have [node](http://nodejs.org) installed. Clone the project:
